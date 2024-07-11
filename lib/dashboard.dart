@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_application/profile.dart';
+import 'package:test_application/project.dart';
+import 'package:test_application/settings.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -6,6 +10,14 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, CupertinoPageRoute(builder: (context) {
+            return Project();
+          }));
+        },
+        child: Icon(Icons.add_comment),
+      ),
       appBar: AppBar(
         title: const Text(
           "Dashboard",
@@ -74,19 +86,54 @@ class Dashboard extends StatelessWidget {
                 )
               ],
             ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              onTap: () {
-                // Handle the tap event
-              },
+            Card(
+              child: ListTile(
+                leading: Icon(
+                  Icons.person,
+                ),
+                title: Text(
+                  'Profile page',
+                  style: TextStyle(),
+                ),
+                subtitle: Text('Go to profile page'),
+                trailing: Icon(Icons.visibility),
+                onTap: () {
+                  // Handle the tap event
+                  Navigator.push(context, CupertinoPageRoute(builder: (ctx) {
+                    return Profile();
+                  }));
+                },
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-              onTap: () {
-                // Handle the tap event
-              },
+            Card(
+              child: ExpansionTile(
+                leading: Icon(
+                  Icons.home,
+                ),
+                title: Text(
+                  'Other page',
+                ),
+                subtitle: Text('Go to other page'),
+                children: [
+                  ListTile(
+                    leading: Icon(
+                      Icons.settings,
+                    ),
+                    title: Text(
+                      'Settings',
+                      style: TextStyle(),
+                    ),
+                    subtitle: Text('Go to setting page'),
+                    onTap: () {
+                      // Handle the tap event
+                      Navigator.push(context,
+                          CupertinoPageRoute(builder: (ctx) {
+                        return Setting();
+                      }));
+                    },
+                  ),
+                ],
+              ),
             ),
             // Add additional content here if needed
           ],
