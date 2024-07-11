@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spincircle_bottom_bar/modals.dart';
 import 'package:spincircle_bottom_bar/spincircle_bottom_bar.dart';
+import 'package:test_application/gridView/normalGridView.dart';
 import 'package:test_application/listview/builder_listview.dart';
 import 'package:test_application/listview/custom_listview.dart';
 import 'package:test_application/listview/normal_listview.dart';
@@ -76,9 +78,31 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
               circleItems: [
                 //Suggested Count: 3
-                SCItem(icon: Icon(Icons.add), onPressed: () {}),
-                SCItem(icon: Icon(Icons.print), onPressed: () {}),
-                SCItem(icon: Icon(Icons.map), onPressed: () {}),
+                SCItem(
+                  icon: Icon(Icons.grid_goldenratio),
+                  onPressed: () {},
+                ),
+                SCItem(
+                  icon: Icon(Icons.grid_3x3),
+                  onPressed: () {},
+                ),
+                SCItem(
+                  icon: Icon(Icons.grid_4x4),
+                  onPressed: () {},
+                ),
+                SCItem(
+                  icon: Icon(Icons.grid_off),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (ctx) {
+                          return NormalGridView();
+                        },
+                      ),
+                    );
+                  },
+                ),
               ],
               bnbHeight: 80 // Suggested Height 80
               ),
