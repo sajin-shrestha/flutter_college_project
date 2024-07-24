@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spincircle_bottom_bar/modals.dart';
 import 'package:spincircle_bottom_bar/spincircle_bottom_bar.dart';
+import 'package:test_application/gallery.dart';
 import 'package:test_application/gridView/builderGridView.dart';
 import 'package:test_application/gridView/countGridView.dart';
 import 'package:test_application/gridView/normalGridView.dart';
@@ -128,7 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
           child: Container(
             color: Colors.orangeAccent.withAlpha(55),
-            child: listChild,
+            // child: listChild,
+            child: Gallery(),
           ),
         ),
       ),
