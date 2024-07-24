@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spincircle_bottom_bar/modals.dart';
 import 'package:spincircle_bottom_bar/spincircle_bottom_bar.dart';
+import 'package:test_application/gridView/builderGridView.dart';
+import 'package:test_application/gridView/countGridView.dart';
 import 'package:test_application/gridView/normalGridView.dart';
 import 'package:test_application/listview/builder_listview.dart';
 import 'package:test_application/listview/custom_listview.dart';
@@ -84,11 +86,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 SCItem(
                   icon: Icon(Icons.grid_3x3),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (ctx) {
+                          return BuilderGridView();
+                        },
+                      ),
+                    );
+                  },
                 ),
                 SCItem(
                   icon: Icon(Icons.grid_4x4),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (ctx) {
+                          return CountGridView();
+                        },
+                      ),
+                    );
+                  },
                 ),
                 SCItem(
                   icon: Icon(Icons.grid_off),

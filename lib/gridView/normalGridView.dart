@@ -11,14 +11,18 @@ class NormalGridView extends StatelessWidget {
         title: Text("Normal GridView"),
       ),
       body: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4, // Number of columns
-          crossAxisSpacing: 4.0,
-          mainAxisSpacing: 4.0,
+        // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //   crossAxisCount: 4, // Number of columns
+        //   crossAxisSpacing: 4.0,
+        //   mainAxisSpacing: 4.0,
+        // ),
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
         ),
         // scrollDirection: Axis.horizontal,
         children: List.generate(100, (index) {
           return Card(
+            color: Colors.red,
             child: Center(
               child: Container(
                 height: 60,
